@@ -9,6 +9,17 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 * Falling speed increases as time passes
 * Game over upon collision
 
+## Technology
+* Vanilla JavaScript for game logic 
+* HTML5 Canvas for DOM manipulation/rendering 
+* Webpack to bundle scripts
+
+## Architecture 
+* board.js: this will handle DOM elements
+* bird.js: this will handle falling speed
+* platforms.js: this will handle platform size and position
+
+
 ## Timeline 
 10/29: 
  
