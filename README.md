@@ -13,8 +13,7 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 10/29: 
  
 - [] Finish brainstorming and proposal
- 
- [] Begin skeleton
+- [] Begin skeleton
 
 10/30:
 - [ ] Review games curriculum
