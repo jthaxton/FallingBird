@@ -1,10 +1,12 @@
 # Falling Bird
 
+[live demo](https://jthaxton.github.io/FallingBird/FallingBird/index.html)
+
 ## Background
 Falling Bird is a game based on Flappy Bird where users use the arrow keys to control a falling bird and try to avoid platforms on the way down.
 
 ## Functionality
-* Users can press the left/right arrow keys to help the falling bird avoid platforms.
+* Users can press the A/D keys to help the falling bird avoid platforms.
 * Platforms generate randomly
 * Falling speed increases as time passes
 * Game over upon collision
@@ -12,12 +14,12 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 ## Technology
 * Vanilla JavaScript for game logic 
 * HTML5 Canvas for DOM manipulation/rendering 
-* Webpack to bundle scripts
 
 ## Architecture 
-* board.js: this will handle DOM elements
-* bird.js: this will handle falling speed
-* platforms.js: this will handle platform size and position
+* index.html: this containst the canvas
+* fallingbird.js: this will handle falling speed
+* images: contains sprite files
+* sounds: contains mp3 files
 
 
 ## Timeline 
@@ -27,15 +29,14 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 - [ ] Begin skeleton
 
 10/30:
-- [ ] Review games curriculum
 - [ ] Finish skeleton
 - [ ] Render background and/or sprite
 
 10/31:
 - [ ] Implement platforms/obstacles
 - [ ] Create game over
-11/1:
 
+11/1:
 - [ ] Implement score
 - [ ] Implement change in game speed over time
 

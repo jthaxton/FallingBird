@@ -2,7 +2,7 @@ var cvs = document.getElementById("canvas");
 var ctx = cvs.getContext("2d");
 
 // load images
-let diff;
+let speedDiff;
 var bird = new Image();
 var bg = new Image();
 var fg = new Image();
@@ -47,7 +47,7 @@ function keyDownTextField(e) {
         bX += 10;
         fly.play();
     } else if (keyCode == 65) {
-        bX -= 10
+        bX -= 10;
         fly.play();
     }
 }
@@ -71,12 +71,11 @@ function draw(){
     
     for(var i = 0; i < pipe.length; i++){
         // draw pipes with gap
-        diff = score/10;
         constant = pipeNorth.width+gap;
         ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeSouth,pipe[i].x + constant,pipe[i].y );
-        //  move pipe up
-        pipe[i].y--;
+        //  move pipes up
+        pipe[i].y = pipe[i].y - (score == 0 ? 1 : 1 + 1/score);
         // randomly generate pipe position
         if( pipe[i].y == 125 ){
             pipe.push({
@@ -85,9 +84,10 @@ function draw(){
             }); 
         }
 
+        console.log(pipe[i].y);
         
         
-        if(pipe[i].y == 5){
+        if(pipe[i].y <= 0){
             score++;
             scor.play();
         } 
