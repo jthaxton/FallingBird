@@ -1,0 +1,33 @@
+#pause {
+    background-color: #4B8CE9;
+    border-radius: .238em;
+    border: 1px solid #0A3A7D;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.3125em;
+    padding: .476em 3%;
+    text-align: center;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.4);
+    margin-top: -110px;
+    z-index: 50;
+    position: absolute;
+}
+
+
+.container {
+    position: absolute;
+}
+
+#status {
+    position: absolute;
+    z-index: 50;
+    margin-top: -400px;
+    margin-left: 85px;
+    font-size: 36px;
+    font-weight: normal;
+    color: #ffbf00;
+}
+
+.directions-container {
+    background: gray;
+}

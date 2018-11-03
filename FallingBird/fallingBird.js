@@ -18,12 +18,13 @@ pipeSouth.src = "images/pipeSouth.png";
 
 
 // pipe gaps
-var gap = 75;
+var gap = 100;
 var constant;
 
 //  bird position
 var bX = 10;
 var bY = 150;
+let paused = false;
 
 var gravity = 1.5;
 
@@ -37,18 +38,44 @@ var scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-// use 'a' and 'd' keydown
+// use enter keydown
 
+function pause() {
+    let d = document.getElementById('pause');
+    let s = document.getElementById('status');
+    if (paused === false && d.innerHTML == 'pause') {
+        paused = true;
+        s.innerHTML = 'Paused';
+        d.innerHTML = 'unpause';
+    }
+    else{
+        paused = false;
+        d.innerHTML = 'pause';
+        s.innerHTML = ' ';
+    }
+}
 document.addEventListener('keydown', keyDownTextField, false);
+let direction = true;
 
 function keyDownTextField(e) {
     var keyCode = e.keyCode;
-    if (keyCode == 68) {
-        bX += 10;
-        fly.play();
-    } else if (keyCode == 65) {
-        bX -= 10;
-        fly.play();
+    if (keyCode == 90 && !paused && direction === true) {
+        direction = false;
+        
+        // flySound();
+    } else if (!paused && direction === false) {
+        direction = true;
+        // muted? null : fly.play();
+    }
+}
+
+function move() {
+    if (direction === true && !paused) {
+        bX += 3;
+    } else if (paused) {
+        bX += 0;
+    } else {
+        bX -= 3;
     }
 }
 
@@ -58,16 +85,31 @@ function keyDownTextField(e) {
 var pipe = [];
 
 pipe[0] = {
-    x : 0,
+    x : -100,
     y : cvs.height
 };
+
+
+let muted = true; 
+function mute() {
+    // let d = document.getElementById('mute')
+    // if (paused === false && d.innerHTML == 'mute') {
+    //     paused = true 
+    //     d.innerHTML = 'unmute'
+    // }
+    // else{
+    //     paused = false
+    //     d.innerHTML = 'mute'
+
+    // }
+}
 
 // draw all images
 
 function draw(){
     
     ctx.drawImage(bg,0,0);
-    
+    move();
     
     for(var i = 0; i < pipe.length; i++){
         // draw pipes with gap
@@ -75,11 +117,11 @@ function draw(){
         ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeSouth,pipe[i].x + constant,pipe[i].y );
         //  move pipes up
-        pipe[i].y = pipe[i].y - (score == 0 ? 1 : 1 + 1/score);
+        paused === false ? pipe[i].y-- : null
         // randomly generate pipe position
         if( pipe[i].y == 125 ){
             pipe.push({
-                x: Math.floor(Math.random() * pipeNorth.width) - pipeNorth.width,
+                x: Math.floor(Math.random() * 185) - pipeNorth.width,
                 y : cvs.height
             }); 
         }
@@ -87,14 +129,14 @@ function draw(){
         console.log(pipe[i].y);
         
         
-        if(pipe[i].y <= 0){
+        if(pipe[i].y == 0){
             score++;
-            scor.play();
+            // muted ? null : scor.play();
         } 
 
         
         // if collision, reload page
-        if (bX <= pipe[i].x + pipeNorth.width && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y) || (bX >= pipe[i].x + constant) && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y )) {
+        if (bX <= pipe[i].x + pipeNorth.width && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y) || (bX + bird.width >= pipe[i].x + constant) && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y ) || bX + bird.width >= 285 || bX <= 0 ) {
             location.reload();
         }
     }
