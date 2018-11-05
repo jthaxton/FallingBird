@@ -28,3 +28,7 @@
     color: #ffbf00;
 }
 
+img {
+    max-width: 50px;
+}
+
