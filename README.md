@@ -17,8 +17,8 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 * HTML5 Canvas for DOM manipulation/rendering 
 
 ## Architecture 
-* index.html: this containst the canvas
-* fallingbird.js: this will handle falling speed
+* index.html: this contains the canvas
+* fallingbird.js: this will handle all logic and ``draw()`` methods involved with the game
 * images: contains sprite files
 * sounds: contains mp3 files
 
@@ -56,9 +56,26 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 ![screenshot](fallingbird.PNG "screenshot")
 
 ## Sample code
+One of the main features differentiating my game from Flappy Bird is that the bird moves from left to right with the press of a button and that it must move continuously. Below is the code I used for its movement pattern: 
+
+```javascript
+document.addEventListener('keydown', keyDownTextField, false);
+let direction = true;
+
+function keyDownTextField(e) {
+    let keyCode = e.keyCode;
+    if (keyCode == 90 && !paused && direction === true) {
+        direction = false;
+        
+    } else if (!paused && direction === false) {
+        direction = true;
+    }
+}
+```
+
 I used the code below to create game over conditions (i.e. collisions):
 
-```
+```javascript
 function draw(){
     ...
     for(let i = 0; i < pipe.length; i++){
