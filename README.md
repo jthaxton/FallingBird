@@ -6,7 +6,8 @@
 Falling Bird is a game based on Flappy Bird where users use the arrow keys to control a falling bird and try to avoid platforms on the way down.
 
 ## Functionality
-* Users can press the A/D keys to help the falling bird avoid platforms.
+* The bird moves right at the start of the game
+* Users can press the Z key change the bird's direction
 * Platforms generate randomly
 * Falling speed increases as time passes
 * Game over upon collision
