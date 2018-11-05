@@ -1,13 +1,13 @@
-var cvs = document.getElementById("canvas");
-var ctx = cvs.getContext("2d");
+let cvs = document.getElementById("canvas");
+let ctx = cvs.getContext("2d");
 
 // load images
 let speedDiff;
-var bird = new Image();
-var bg = new Image();
-var fg = new Image();
-var pipeNorth = new Image();
-var pipeSouth = new Image();
+let bird = new Image();
+let bg = new Image();
+let fg = new Image();
+let pipeNorth = new Image();
+let pipeSouth = new Image();
 
 bird.src = "images/bird.png";
 bg.src = "images/bg.png";
@@ -18,22 +18,22 @@ pipeSouth.src = "images/pipeSouth.png";
 
 
 // pipe gaps
-var gap = 100;
-var constant;
+let gap = 100;
+let constant;
 
 //  bird position
-var bX = 10;
-var bY = 150;
+let bX = 10;
+let bY = 150;
 let paused = false;
 
-var gravity = 1.5;
+let gravity = 1.5;
 
-var score = 0;
+let score = 0;
 
 // audio files
 
-var fly = new Audio();
-var scor = new Audio();
+let fly = new Audio();
+let scor = new Audio();
 
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
@@ -58,7 +58,7 @@ document.addEventListener('keydown', keyDownTextField, false);
 let direction = true;
 
 function keyDownTextField(e) {
-    var keyCode = e.keyCode;
+    let keyCode = e.keyCode;
     if (keyCode == 90 && !paused && direction === true) {
         direction = false;
         
@@ -82,7 +82,7 @@ function move() {
 
 // pipe coordinates
 
-var pipe = [];
+let pipe = [];
 
 pipe[0] = {
     x : -100,
@@ -111,7 +111,7 @@ function draw(){
     ctx.drawImage(bg,0,0);
     move();
     
-    for(var i = 0; i < pipe.length; i++){
+    for(let i = 0; i < pipe.length; i++){
         // draw pipes with gap
         constant = pipeNorth.width+gap;
         ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);

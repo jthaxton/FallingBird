@@ -51,3 +51,26 @@ Falling Bird is a game based on Flappy Bird where users use the arrow keys to co
 * Upgrades:
   * Immunity: Falling bird hits immunity item and briefly is able to fall through platforms without causing game over
   * Point bonus: Falling bird gains bonus points
+
+## Screenshot
+![screenshot](fallingbird.PNG "screenshot")
+
+## Sample code
+I used the code below to create game over conditions (i.e. collisions):
+
+```
+function draw(){
+    ...
+    for(let i = 0; i < pipe.length; i++){
+    ...
+        if (bX <= pipe[i].x + pipeNorth.width && 
+        (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
+        (bY + bird.height >= pipe[i].y) ||
+        (bX + bird.width >= pipe[i].x + constant) &&
+        (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
+        (bY + bird.height >= pipe[i].y ) || 
+        bX + bird.width >= 285 || bX <= 0 ) {
+        location.reload();
+        }
+```
+Simply put, this expression checks to see if the bird's coordinates intersect with pipes or with the map borders.
