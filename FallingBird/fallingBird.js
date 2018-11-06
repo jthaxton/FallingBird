@@ -110,16 +110,16 @@ function draw(){
     
     ctx.drawImage(bg,0,0);
     move();
-    
+    if (paused === false) {
     for(let i = 0; i < pipe.length; i++){
         // draw pipes with gap
         constant = pipeNorth.width+gap;
         ctx.drawImage(pipeNorth, pipe[i].x, pipe[i].y);
         ctx.drawImage(pipeSouth,pipe[i].x + constant,pipe[i].y );
         //  move pipes up
-        paused === false ? pipe[i].y-- : null
+        pipe[i].y--;
         // randomly generate pipe position
-        if( pipe[i].y == 125 ){
+        if( pipe[i].y == 125){
             pipe.push({
                 x: Math.floor(Math.random() * 185) - pipeNorth.width,
                 y : cvs.height
@@ -136,10 +136,18 @@ function draw(){
 
         
         // if collision, reload page
-        if (bX <= pipe[i].x + pipeNorth.width && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y) || (bX + bird.width >= pipe[i].x + constant) && (bY + bird.height <= pipe[i].y + pipeNorth.height) && (bY + bird.height >= pipe[i].y ) || bX + bird.width >= 285 || bX <= 0 ) {
+        if (bX <= pipe[i].x + pipeNorth.width &&
+            (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
+            (bY + bird.height >= pipe[i].y) ||
+            (bX + bird.width >= pipe[i].x + constant) &&
+            (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
+            (bY + bird.height >= pipe[i].y ) ||
+            bX + bird.width >= 285 ||
+            bX <= 0 ) {
             location.reload();
         }
     }
+}
 
     ctx.drawImage(fg,0,cvs.height - fg.height);
     
