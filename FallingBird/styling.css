@@ -32,3 +32,16 @@ img {
     max-width: 50px;
 }
 
+#status2{
+    position: absolute;
+    z-index: 50;
+    margin-top: -350px;
+    margin-left: 85px;
+    font-size: 36px;
+    font-weight: normal;
+    color: #ffbf00;
+}
+
+#status2:hover {
+    cursor: pointer;
+}

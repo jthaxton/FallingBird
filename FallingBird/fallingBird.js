@@ -57,9 +57,12 @@ function pause() {
 
 function gameOver() {
     let s = document.getElementById('status');
+    let d = document.getElementById('status2');
     if (paused === false) {
         paused = true;
         s.innerHTML = 'Game Over';
+        d.innerHTML = '<div id="continue" onclick="location.reload()">Try Again?</div>';
+
     }
     else {
         paused = false;
@@ -156,7 +159,7 @@ function draw(){
             bX + bird.width >= 285 ||
             bX <= 0 ) {
             gameOver();
-            location.reload();
+            // location.reload();
         }
     }
 }
