@@ -126,7 +126,6 @@ function draw(){
             }); 
         }
 
-        console.log(pipe[i].y);
         
         
         if(pipe[i].y == 0){
