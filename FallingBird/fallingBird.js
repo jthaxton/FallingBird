@@ -54,6 +54,18 @@ function pause() {
         s.innerHTML = ' ';
     }
 }
+
+function gameOver() {
+    let s = document.getElementById('status');
+    if (paused === false) {
+        paused = true;
+        s.innerHTML = 'Game Over';
+    }
+    else {
+        paused = false;
+        s.innerHTML = ' ';
+    }
+}
 document.addEventListener('keydown', keyDownTextField, false);
 let direction = true;
 
@@ -143,6 +155,7 @@ function draw(){
             (bY + bird.height >= pipe[i].y ) ||
             bX + bird.width >= 285 ||
             bX <= 0 ) {
+            gameOver();
             location.reload();
         }
     }
