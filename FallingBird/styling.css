@@ -1,5 +1,5 @@
 #pause {
-    background-color: #4B8CE9;
+background-color: #4B8CE9;
     border-radius: .238em;
     border: 1px solid #0A3A7D;
     color: #fff;
@@ -11,12 +11,13 @@
     margin-top: -110px;
     z-index: 50;
     position: absolute;
-    margin-left: 500px;
-    margin-top: -60px;
+    right: 10px;
+    margin-top: -1000px;
 }
 
 #continue {
-    margin-left: 165px;
+    margin-left: 115px;
+    margin-top: -400px;
 }
 
 .container {
@@ -26,8 +27,8 @@
 #status {
     position: absolute;
     z-index: 50;
-    margin-top: -400px;
-    margin-left: 250px;
+    margin-top: -800px;
+    margin-left: 200px;
     font-size: 36px;
     font-weight: normal;
     color: #ffbf00;

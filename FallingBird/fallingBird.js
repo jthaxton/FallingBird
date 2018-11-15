@@ -1,6 +1,6 @@
 let cvs = document.getElementById("canvas");
 let ctx = cvs.getContext("2d");
-ctx.scale(2.45, 1);
+ctx.scale(2, 2);
 
 
 // load images
@@ -100,7 +100,7 @@ let pipe = [];
 
 pipe[0] = {
     x : -100,
-    y : cvs.height
+    y : 500
 };
 
 
@@ -132,10 +132,10 @@ function draw(){
         //  move pipes up
         pipe[i].y--;
         // randomly generate pipe position
-        if( pipe[i].y == 125){
+        if( pipe[i].y == 0){
             pipe.push({
                 x: Math.floor(Math.random() * 185) - pipeNorth.width,
-                y : cvs.height
+                y : 500
             }); 
         }
 
@@ -169,33 +169,9 @@ function draw(){
     // show sore
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";
-    ctx.fillText("Score : "+score,10,cvs.height-20);
+    ctx.fillText("Score : "+score,10,15);
     
     requestAnimationFrame(draw);  
 }
 
 draw();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
