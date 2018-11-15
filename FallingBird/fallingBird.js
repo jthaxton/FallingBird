@@ -1,5 +1,7 @@
 let cvs = document.getElementById("canvas");
 let ctx = cvs.getContext("2d");
+ctx.scale(2.45, 1);
+
 
 // load images
 let speedDiff;
@@ -18,7 +20,7 @@ pipeSouth.src = "images/pipeSouth.png";
 
 
 // pipe gaps
-let gap = 100;
+let gap = 90;
 let constant;
 
 //  bird position
@@ -64,10 +66,7 @@ function gameOver() {
         d.innerHTML = '<div id="continue" onclick="location.reload()">Try Again?</div>';
 
     }
-    else {
-        paused = false;
-        s.innerHTML = ' ';
-    }
+
 }
 document.addEventListener('keydown', keyDownTextField, false);
 let direction = true;
@@ -122,7 +121,6 @@ function mute() {
 // draw all images
 
 function draw(){
-    
     ctx.drawImage(bg,0,0);
     move();
     if (paused === false) {
@@ -150,12 +148,12 @@ function draw(){
 
         
         // if collision, reload page
-        if (bX <= pipe[i].x + pipeNorth.width &&
+        if ((bX <= pipe[i].x + pipeNorth.width &&
             (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
-            (bY + bird.height >= pipe[i].y) ||
-            (bX + bird.width >= pipe[i].x + constant) &&
+            (bY + bird.height >= pipe[i].y)) ||
+            ((bX + bird.width >= pipe[i].x + constant) &&
             (bY + bird.height <= pipe[i].y + pipeNorth.height) &&
-            (bY + bird.height >= pipe[i].y ) ||
+            (bY + bird.height >= pipe[i].y )) ||
             bX + bird.width >= 285 ||
             bX <= 0 ) {
             gameOver();
@@ -164,7 +162,7 @@ function draw(){
     }
 }
 
-    ctx.drawImage(fg,0,cvs.height - fg.height);
+    ctx.drawImage(fg,0,425);
     
     ctx.drawImage(bird,bX,bY);
     
