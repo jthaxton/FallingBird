@@ -45,14 +45,14 @@ scor.src = "sounds/score.mp3";
 function pause() {
     let d = document.getElementById('pause');
     let s = document.getElementById('status');
-    if (paused === false && d.innerHTML == 'pause') {
+    if (paused === false && d.innerHTML == 'Pause') {
         paused = true;
         s.innerHTML = 'Paused';
-        d.innerHTML = 'unpause';
+        d.innerHTML = 'Unpause';
     }
     else{
         paused = false;
-        d.innerHTML = 'pause';
+        d.innerHTML = 'Pause';
         s.innerHTML = ' ';
     }
 }
