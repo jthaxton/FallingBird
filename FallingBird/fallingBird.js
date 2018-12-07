@@ -40,7 +40,7 @@ let scor = new Audio();
 fly.src = "sounds/fly.mp3";
 scor.src = "sounds/score.mp3";
 
-// use enter keydown
+// use enter key down
 
 function pause() {
     let d = document.getElementById('pause');
