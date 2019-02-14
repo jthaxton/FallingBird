@@ -166,10 +166,10 @@ function draw(){
     
     ctx.drawImage(bird,bX,bY);
     
-    // show sore
+    // show score
     ctx.fillStyle = "#000";
     ctx.font = "20px Verdana";
-    ctx.fillText("Score : "+score,10,15);
+    ctx.fillText("Score : "+score,22,35);
     
     requestAnimationFrame(draw);  
 }
